@@ -1,0 +1,44 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true,
+      "transformClassProperties": true
+    },
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "16.7"
+    }
+  },
+  "rules": {
+    "eqeqeq": ["error", "smart"],
+    "no-console": "off",
+    "no-empty": "warn",
+    "no-underscore-dangle": "warn",
+    "no-unused-vars": "warn",
+    "no-var": 2,
+    "object-shorthand": ["error", "always"],
+    "react/jsx-handler-names": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/no-deprecated": "warn",
+    "prettier/prettier": ["error", { "trailingComma": "es5", "semi": false }]
+  },
+  "plugins": [
+    "react",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "prettier",
+    "prettier/react"
+  ]
+}
