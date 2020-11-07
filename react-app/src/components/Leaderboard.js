@@ -14,11 +14,6 @@ useEffect(() => {
   const response = await fetch('http://localhost:3000/api/scores')
   const body = await response.json();
   console.log(body);
-  // let categories = [];
-  // body.forEach(({category}) => {categories.push(category)});
-  // let singleCategories = [...new Set(categories)].map((category) => ({
-  //   value: category
-  // }));
   console.log (body[1].firstName)
   setScore(body[1].score)
   setFirstName(body[1].firstName)
@@ -29,7 +24,12 @@ getCategory();
 }, []);
 
  return (
-  <table className="table">
+   <div>
+  {loading
+  ?
+  <div >Loading</div>
+    :
+    <table className="table">
     <thead>
       {/* <tr>
         <th>First name</th>
@@ -50,6 +50,8 @@ getCategory();
       </tr> */}
     </tbody>
   </table>
+  }
+  </div>
   );
 }
 
