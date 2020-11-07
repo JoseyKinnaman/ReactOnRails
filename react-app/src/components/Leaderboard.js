@@ -3,24 +3,23 @@ import '../components/Leaderboard.css'
 
 const Leaderboard = () => {
 const [loading, setLoading] = useState(true);
-const [score, setScore] = useState([]);
-const [firstName, setFirstName] = useState();
-const [lastName, setLastName] = useState();
+const [entry, setEntry] = useState([]);
+// const [firstName, setFirstName] = useState();
+// const [lastName, setLastName] = useState();
 
 
 useEffect(() => {
   setLoading(true)
-  async function getCategory(){
+  async function getScores(){
   const response = await fetch('http://localhost:3000/api/scores')
   const body = await response.json();
-  console.log(body);
-  console.log (body[1].firstName)
-  setScore(body[1].score)
-  setFirstName(body[1].firstName)
-  setLastName(body[1].lastName)
+  let entries = [];
+    body.forEach((x => {entries.push([x.firstName, x.lastName, x.score])}));
+  setEntry(entries)
+  console.log(entries)
   setLoading(false);
   }
-getCategory();
+getScores();
 }, []);
 
  return (
@@ -30,24 +29,14 @@ getCategory();
   <div >Loading</div>
     :
     <table className="table">
-    <thead>
-      {/* <tr>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Score</th>
-      </tr> */}
-    </thead>
     <tbody>
+      {entry.map((e) => (
       <tr>
-        <td>{firstName}</td>
-        <td>{lastName}</td>
-        <td>{score}</td>
+        <td>{e[0]}</td>
+        <td>{e[1]}</td>
+        <td>{e[2]}</td>
       </tr>
-      {/* <tr>
-        <td>Name</td>
-        <td>Placeholder</td>
-        <td>20</td>
-      </tr> */}
+      ))}
     </tbody>
   </table>
   }
