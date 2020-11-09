@@ -7,7 +7,6 @@ const App = () => (
     <div className="row">
       <section className="col-md-7">
         <h1>Dunderball Leaderboard</h1>
-
         <Leaderboard />
       </section>
     </div>

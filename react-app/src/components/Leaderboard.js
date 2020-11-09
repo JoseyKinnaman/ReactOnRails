@@ -1,79 +1,117 @@
 import React, { useState, useEffect } from "react";
-import EntryForm from "../components/EntryForm"
-import '../components/Leaderboard.css'
+import EntryForm from "../components/EntryForm";
+import '../components/Leaderboard.css';
 
 const Leaderboard = () => {
 const [loading, setLoading] = useState(true);
-const [entry, setEntry] = useState([]);
-// const [firstName, setFirstName] = useState();
-// const [lastName, setLastName] = useState();
+const [entry, setEntry] = useState({});
 
 
 useEffect(() => {
   setLoading(true)
   async function getScores(){
-    const response = await fetch('http://localhost:3000/api/scores')
+    const response = await fetch('http://localhost:3000/api/scores');
+    if (response.status !== 200){
+      alert("The server in the warehouse server is down again. Please be try again later...did I stutter?!")
+    } else {
     const body = await response.json();
-    let entries = [];
-      body.forEach((x => {entries.push([x.firstName, x.lastName, x.score])}));
-    const sortedEntries = entries.sort((a,b) => b[2] - a[2]);
-    setEntry(sortedEntries)
-    setLoading(false);
+    let entries = Object.keys(body).map(function(key){
+      return body[key]}).sort((a,b) => b.score - a.score);
+      setEntry(entries)
+      setLoading(false);
+    }
   }
 getScores();
-}, []);
+}, [])
+
 
 const sortByFirstName = () =>{
-   const entryByFirstName = entry.sort((a,b) => {
-     return a[0].localeCompare(b[0]);
+  const entryByFirstName = entry.slice().sort((a,b) => {
+    return a.firstName.localeCompare(b.firstName);
     });
-   setEntry(entryByFirstName);
-   console.log(entryByFirstName)
+  setEntry(entryByFirstName);
+};
+
+const sortByFirstNameDescending = () =>{
+  const entryByFirstName = entry.slice().sort((a,b) => {
+    return b.firstName.localeCompare(a.firstName);
+    });
+  setEntry(entryByFirstName);
 };
 
 const sortByLastName = () =>{
-  const entryByLastName = entry.sort((a,b) => {
-    return a[1].localeCompare(b[1]);
-   });
+  const entryByLastName = entry.slice().sort((a,b) => {
+    return a.lastName.localeCompare(b.lastName);
+  });
   setEntry(entryByLastName);
-  console.log(entryByLastName)
+};
+
+const sortByLastNameDescending = () =>{
+  const entryByLastName = entry.slice().sort((a,b) => {
+    return b.lastName.localeCompare(a.lastName);
+  });
+  setEntry(entryByLastName);
 };
 
 const sortByLowScore = () =>{
-  const entryByLowScore = entry.sort((a,b) => a[2] - b[2])
+  const entryByLowScore = entry.slice().sort((a,b) => a.score - b.score)
   setEntry(entryByLowScore);
-  console.log(entryByLowScore)
 };
 
- return (
-   <div className="ui segment">
-  {loading
-  ?
-  <div className="ui active inverted dimmer">
-  <div className="ui text loader">Loading</div>
-  </div>
-    :
-    <div>
-    <table className="table">
-    <tbody>
-      {entry.map((e) => (
-      <tr key={e.id}>
-        <td >{e[0]}</td>
-        <td >{e[1]}</td>
-        <td >{e[2]}</td>
-      </tr>
-      ))}
-    </tbody>
-  </table>
-  <div className="ui button" onClick={sortByFirstName} >Sort by First Name</div>
-    <br />
-  <div className="ui primary button" onClick={sortByLastName}>Sort by Last Name</div>
-   <br />
-  <div className="ui secondary button" onClick={sortByLowScore}>Sort by Score</div>
-    <br />
-  <EntryForm />
-  </div>
-  }
+const sortByHighScore = () =>{
+  const entryByHighScore = entry.slice().sort((a,b) => b.score - a.score)
+  setEntry(entryByHighScore);
+};
+
+return (
+  <div className="ui segment">
+    {loading
+    ?
+    <div className="ui active inverted dimmer">
+    <div className="ui text loader">Loading</div>
+    </div>
+      :
+      <div>
+      <table className="table">
+      <tbody>
+        {entry.map((e) => (
+          <tr key={e.id}>
+            <td >{e.firstName}</td>
+            <td >{e.lastName}</td>
+            <td >{e.score}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <div className="ui icon buttons">
+      <div className="ui primary icon button" onClick={sortByFirstName}>
+        First Name
+        <i className="sort alphabet down icon" />
+      </div>
+      <div className="ui secondary icon button" onClick={sortByFirstNameDescending}>
+        Last Name
+        <i className="sort alphabet up icon" />
+      </div>
+      <div className="ui primary icon button" onClick={sortByLastName}>
+        Last Name
+        <i className="sort alphabet down icon" />
+      </div>
+      <div className="ui secondary icon button" onClick={sortByLastNameDescending}>
+        Last Name
+        <i className="sort alphabet up icon"/>
+      </div>
+    </div>
+    <div className="ui icon buttons">
+      <div className="ui positive icon button" onClick={sortByHighScore}>
+        <i className="sort amount down icon" />
+      </div>
+      <div className="ui negative icon button" onClick={sortByLowScore}>
+        <i className="sort amount up icon" />
+      </div>
+    </div>
+      <EntryForm setEntry={()=>setEntry} entry={entry}/>
+    </div>
+    }
   </div>
   );
 }
