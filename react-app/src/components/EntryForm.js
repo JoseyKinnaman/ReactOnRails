@@ -8,7 +8,6 @@ const [user, setUser] = useState([])
 
 const handleSubmit = (e) => {
   e.preventDefault()
-  console.log(JSON.stringify(user))
   fetch('http://localhost:3000/api/scores', {
     method: 'POST',
     body: JSON.stringify(user),

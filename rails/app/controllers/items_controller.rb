@@ -6,7 +6,9 @@ class ItemsController < ApplicationController
     @item = @list.items.create params[:item].permit(:content)
   end
 
-  def edit; end
+  def edit;
+    @item = Item.find(params[:id])
+  end
 
   def update
     @item.update_attributes(params[:item].permit(:content))

@@ -1,8 +1,15 @@
 class ListsController < ApplicationController
   before_action :set_project
 
+
+
   def create
-    @project.lists.create!(params[:list])
+    @project = Project.find(params[:project_id])
+    @project.lists.create!(params[:list]).permit(:content)
+  end
+
+  def edit;
+    @list = List.find(params[:id])
   end
 
   def sort
@@ -10,6 +17,15 @@ class ListsController < ApplicationController
       @project.items.where(id: id).update_all(position: index + 1)
     end
     head 200
+  end
+
+  def update
+    @list.update_attributes(params[:item].permit(:content))
+  end
+
+  def destroy
+    @list.destroy
+    # @item.destroy
   end
 
   private

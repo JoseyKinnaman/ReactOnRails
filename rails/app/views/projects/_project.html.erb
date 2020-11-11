@@ -3,5 +3,14 @@
 
   <%= render project.lists %>
 
+  <%# <div class="panel-footer">
+    <%= form_for [project, List.new], remote: true, html: { class: "form-inline", id: "#{dom_id(project)}_new_item_form" } do |f| %>
+      <%# <div class="form-group">
+        <%= f.text_field :content, class: "form-control" %>
+      <%# </div>
+      <%= f.submit "Add Form", name: nil, class: "btn btn-primary btn" %>
+    <%# <% end %> 
+
+  </div>
   <button class="btn btn-primary" type="button">Add a list</button>
 </article>
