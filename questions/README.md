@@ -12,7 +12,7 @@ I truly enjoy working with React. I love how seamless it is with client side ren
 
 *Great examples include features added to company apps, open source contributions, and exceptional answers on community forums.*
 
-My favorite and most notable contribution to a project would have to be my time spent on the React.js refactor for the admin side of the Nike News app during my time at the Ruby on Rails agency, planet Argon in Portland, Oregon. During my time on the project I suggested the implementation of functional components and hooks versus strictly using class components. My suggested was accepted and I was able to create tickets for components on the project alongside completely 9 components myself. I also implemented testing on the project with Jest and the React Testing Library that did not exist prior to my time at Planet Argon. 
+My favorite and most notable contribution to a project would have to be my time spent on the React.js refactor for the admin side of the Nike News app. I worked on it at the Ruby on Rails agency, planet Argon in Portland, Oregon. During my time on the project I suggested the implementation of functional components and hooks versus strictly using class components. My suggested was accepted and I was able to create tickets for components on the project alongside completing 9 components myself. I also implemented testing on the project with Jest and the React Testing Library that did not exist prior to my time at Planet Argon.
 
 
 ## In your own words, what happens when you visit a single URL of a Rails app?
@@ -23,4 +23,4 @@ My favorite and most notable contribution to a project would have to be my time 
 
 ## What resources do you use to keep your Ruby, Rails and other development skills sharp?
 
-I attend the Portland Ruby Brigade monthly to speak with other Ruby developers (actually from around the world), I listen to podcasts (The Maintainable Podcast is a big favorite), and I read blogs. I also participated in the Rails Survey recently to see how other members of the community are using rails as well. I spend a lot of time coding on my own as well. I really love YouTube and Udemy tutorials and I do an edabit problem daily. 
+I attend the Portland Ruby Brigade monthly to speak with other Ruby developers (actually from around the world), I listen to podcasts (The Maintainable Podcast is a big favorite), and I read blogs. I also participated in the Rails Survey recently to see how other members of the community are using rails as well. I spend a lot of time coding on my own as well. I really love YouTube and Udemy tutorials and I do an edabit problem daily.
