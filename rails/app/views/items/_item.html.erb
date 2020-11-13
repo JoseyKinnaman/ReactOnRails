@@ -1,11 +1,10 @@
 <li class="list-group-item" id="<%= dom_id(item) %>">
   <div class="checkbox">
-    <label>
-      <input type="checkbox">
+    <label id="checkbox">
+      <input type="checkbox" name="collection_ids[]" value="<%= item.id %>"  >
       <%= item.content %>
     </label>
   </div>
-
   <div>
     <span class="glyphicon glyphicon-resize-vertical handle"></span>
     <%= link_to %(<span class="glyphicon glyphicon-pencil"></span>).html_safe, [:edit, item], remote: true %>

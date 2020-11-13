@@ -1,11 +1,9 @@
 class ListsController < ApplicationController
-  before_action :set_project
-
-
+  before_action :set_list, only: %i[edit update destroy]
 
   def create
     @project = Project.find(params[:project_id])
-    @project.lists.create!(params[:list]).permit(:content)
+    @list = @project.lists.create params[:list].permit(:name)
   end
 
   def edit;
@@ -20,21 +18,17 @@ class ListsController < ApplicationController
   end
 
   def update
-    @list.update_attributes(params[:item].permit(:content))
+    @list.update_attributes(params[:list].permit(:name))
   end
 
   def destroy
     @list.destroy
-    # @item.destroy
   end
 
   private
 
-  def set_project
-    @project = Project.where(id: get_list.project_id).first!
+  def set_list
+    @list = List.where(id: params[:id]).first!
   end
 
-  def get_list
-    @list ||= List.where(id: params[:id]).first!
-  end
 end

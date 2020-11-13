@@ -1,16 +1,14 @@
 <article id="<%= dom_id(project) %>">
-  <h3><%= project.name %></h3>
-
-  <%= render project.lists %>
-
-  <%# <div class="panel-footer">
-    <%= form_for [project, List.new], remote: true, html: { class: "form-inline", id: "#{dom_id(project)}_new_item_form" } do |f| %>
-      <%# <div class="form-group">
-        <%= f.text_field :content, class: "form-control" %>
-      <%# </div>
-      <%= f.submit "Add Form", name: nil, class: "btn btn-primary btn" %>
-    <%# <% end %> 
-
-  </div>
-  <button class="btn btn-primary" type="button">Add a list</button>
+  <h2 class="heading"> Project Name: <%= project.name %></h2>
+   <ul >
+        <%= form_for [project, List.new], remote: true, html: { class: "form-inline", id: "form" } do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <%= f.submit "Add List", name: nil, class: "btn btn-primary btn" %>
+        <% end %>
+    </ul>
+    <ul id="project_lists" class="project-group sorul" data-update-url="<%= sort_project_path(project) %>">
+        <%= render project.lists %>
+    </ul>
 </article>

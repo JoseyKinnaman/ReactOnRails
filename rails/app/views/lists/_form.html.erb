@@ -1,4 +1,6 @@
-<%= form_for [list], remote: true do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit "Update List Name", name: nil, class: "btn btn-default btn-sm" %>
-<% end %>
+<div class="panel-header">
+  <%= form_for [list],remote: true,  html: { class: "form-inline" } do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "Update List Name", name: nil, class: "btn btn-default btn-sm" %>
+  <% end %>
+</div>

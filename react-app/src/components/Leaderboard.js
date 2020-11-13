@@ -7,8 +7,6 @@ const [loading, setLoading] = useState(true);
 const [entry, setEntry] = useState({});
 const [user, setUser] = useState([]);
 
-
-
 useEffect(() => {
   setLoading(true)
   async function getScores(){
@@ -80,12 +78,8 @@ const sortByLowScore = () =>{
 
 const sortByHighScore = () =>{
   const entryByHighScore = entry.slice().sort((a,b) => b.score - a.score)
-  console.log(entryByHighScore)
   setEntry(entryByHighScore);
 };
-
-
-
 
 return (
   <div className="ui segment">
@@ -107,8 +101,8 @@ return (
         ))}
       </tbody>
     </table>
-    <div className="ui icon buttons">
-      <div className="ui primary icon button" onClick={sortByFirstName}>
+    <div id="buttonBar" className="ui icon buttons">
+      <div value="ascending"className="ui primary icon button" onClick={sortByFirstName}>
         First Name
         <i className="sort alphabet down icon" />
       </div>
@@ -124,12 +118,12 @@ return (
         Last Name
         <i className="sort alphabet up icon"/>
       </div>
-    </div>
-    <div className="ui icon buttons">
       <div className="ui positive icon button" onClick={sortByHighScore}>
+        #
         <i className="sort amount down icon" />
       </div>
       <div className="ui negative icon button" onClick={sortByLowScore}>
+        #
         <i className="sort amount up icon" />
       </div>
     </div>

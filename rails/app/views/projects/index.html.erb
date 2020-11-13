@@ -1,32 +1,12 @@
 <main class="container">
   <div class="row">
-    <section class="col-md-5">
-      <h1>Rails Assignment</h1>
-
-      <section class="well">
-        <p>We think Planning Center is uniquely positioned to disrupt the todo list industry, and you can help. Complete the tasks below to get started.</p>
-
-        <h4>Tasks</h4>
-
-        <ol style="padding-left: 20px">
-          <li>Add the ability to create new lists.</li>
-          <li>Add the ability to update the name of existing lists.</li>
-          <li>Ensure that all forms are reset after they are submitted if they are still visible on the page.</li>
-          <li>Add the ability to mark individual items as completed and persist the completed state to the database.</li>
-          <li>Wire up the "Delete completed" button to remove any items that are completed.</li>
-          <li>Identify and fix potential performance issues with the existing backend code. <em>We're not looking for actual benchmarks, but an understanding of areas that would be a bottleneck in a real-world application.</em></li>
-        </ol>
-
-        <p><strong>All tasks involving browser/server interaction should use AJAX. The page should never be reloaded.</strong></p>
-      </section>
-
-    </section>
-
-    <section class="col-md-7">
-      <h2>Projects</h2>
-
+  <div class="col-md-3 "> </div>
+    <section class="col-md-6">
+      <h1 class="heading">Super ToDo!</h1>
+      <h5 class="heading"> Organize Your Life </h5>
       <%= render @projects %>
     </section>
+    <div class="col-md-3"> </div>
   </div>
 </main>
 
