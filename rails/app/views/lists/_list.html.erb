@@ -6,13 +6,11 @@
     <%= link_to %(<span class="glyphicon glyphicon-trash"></span>).html_safe, list, remote: true, method: :delete, data: { confirm: "Are you sure?" } %>
   </div>
 
-
     <ul class="list-group sortable" data-update-url="<%= sort_list_path(list) %>">
       <%= render list.items %>
     </ul>
     <div class="panel-footer">
     </div>
-
 
   <div class="panel-footer">
     <%= form_for [list, Item.new], remote: true, html: { class: "form-inline", id: "#{dom_id(list)}_new_item_form" } do |f| %>
@@ -21,7 +19,6 @@
       </div>
       <%= f.submit "Add Item", name: nil, class: "btn btn-default btn" %>
     <% end %>
-
   </div>
 
 </article>
