@@ -1,0 +1,4 @@
+<%= form_for [list], remote: true do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Update List Name", name: nil, class: "btn btn-default btn-sm" %>
+<% end %>

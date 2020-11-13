@@ -1,1 +1,2 @@
 $("#<%= dom_id(@list) %> ul").append("<%=j render 'items/item', item: @item %>");
+$("#<%= dom_id(@list) %>_new_item_form")[0].reset();

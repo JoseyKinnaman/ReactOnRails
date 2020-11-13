@@ -1,3 +1,12 @@
 /*
  *= require base
  */
+
+ body {
+  background-color: #242423;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: monospace;
+  color:#F5CB5C ;
+}
