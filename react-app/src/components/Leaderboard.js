@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import EntryForm from "../components/EntryForm";
 import '../components/Leaderboard.css';
 
 const Leaderboard = () => {
