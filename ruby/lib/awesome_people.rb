@@ -19,7 +19,7 @@ class Awesome
   end
 
     def print_script
-      puts  "The most awesome person is #{most_awesome[:name]} with an awesomness rating of #{most_awesome[:awesomeness]}!"
+      puts  "The most awesome person is #{most_awesome[:name]} with an awesomeness rating of #{most_awesome[:awesomeness]}!"
       puts  "The average amount of awesome here is #{average_awesome}!"
       puts "The top ten most awesome people are #{top_ten}."
   end
