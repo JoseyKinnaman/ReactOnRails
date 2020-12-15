@@ -8,4 +8,4 @@ bundle exec rails db:create db:migrate db:seed
 bundle exec rails server
 ```
 
-Point your browser at http://localhost:3000/ and follow the instructions on that page!
+Point your browser at http://localhost:3000/!

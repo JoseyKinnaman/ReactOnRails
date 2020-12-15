@@ -1,4 +1,4 @@
-# Planning Center React App
+# React App
 
 Run `yarn install` to get all the modules installed.
 
