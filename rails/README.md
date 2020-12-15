@@ -1,4 +1,4 @@
-# Planning Center Rails Challenge
+# Rails App
 
 Make sure you're running Ruby 2.5 or later and run the following:
 
